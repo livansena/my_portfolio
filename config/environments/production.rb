@@ -12,17 +12,15 @@ Rails.application.configure do
   config.force_ssl = true
   config.logger = ActiveSupport::Logger.new(STDOUT).tap { |logger| logger.formatter = ::Logger::Formatter.new }.then { |logger| ActiveSupport::TaggedLogging.new(logger) }
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  config.log_tags = [ :request_id ]
   config.action_mailer.perform_caching = false
   config.i18n.fallbacks = true
   config.active_support.report_deprecations = false
   config.active_record.dump_schema_after_migration = false
-  config.log_tags = [ :request_id ] # Mantenha esta linha para logs no Render
 
-  # Configurações específicas para o Render
-  config.action_controller.asset_host = ENV['ASSET_HOST'] # Usado para servir assets via CDN (opcional, Render pode configurar)
-  config.file_watcher = ActiveSupport::FileWatcher.new # Desativa o file watcher para performance
+  config.action_controller.asset_host = ENV['ASSET_HOST']
 
-  # config.hosts = [ # Configure seus domínios se não for usar o domínio padrão do Render
+  # config.hosts = [
   #   "example.com",
   #   /.*\.example\.com/
   # ]
