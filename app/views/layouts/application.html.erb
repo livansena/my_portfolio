@@ -13,14 +13,14 @@
   </head>
   <body>
     <header>
-      <nav> <%# Removido data-controller="mobile-menu" %>
+      <nav>
         <div class="logo">
           <div class="logo-circle ruby-color">R</div>
           <div class="logo-circle css-color">CSS</div>
           <div class="logo-circle js-color">JS</div>
         </div>
 
-        <ul> <%# Removido o mobile-nav-menu div %>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: row; gap: 30px; align-items: center;">
           <li><%= link_to "Início", root_path %></li>
           <li><%= link_to "Sobre mim", sobre_mim_path %></li>
           <li><%= link_to "Projetos", projetos_path %></li>
