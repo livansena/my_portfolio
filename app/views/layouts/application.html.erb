@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Livan Passos</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <header>
+
+     <nav class="navbar"> <%# Adicionei a classe "navbar" aqui %>
+  <div class="navbar-brand"> <%# Adicionei um container para o logo %>
+    <div class="logo">
+      <div class="logo-circle ruby-color">R</div>
+      <div class="logo-circle css-color">CSS</div>
+      <div class="logo-circle js-color">JS</div>
+    </div>
+  </div>
+
+  <button class="hamburger-menu" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <div class="navbar-links" id="navbarLinks"> <%# Esta div irá conter sua lista de links %>
+    <ul>
+      <li><%= link_to "Início", root_path %></li>
+      <li><%= link_to "Sobre mim", sobre_mim_path %></li>
+      <li><%= link_to "Projetos", projetos_path %></li>
+      <li><%= link_to "Habilidades", habilidades_path %></li>
+       <li><%= link_to "Conquistas", achievements_path %></li>
+      <li><%= link_to "Contato", contato_path %></li>
+    </ul>
+  </div>
+</nav>
+
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>&copy; <%= Time.current.year %> Livan Passos. Todos os direitos reservados.</p>
+      <p>E-mail para contato: livansena@gmail.com</p>
+    </footer>
+  </body>
+</html>

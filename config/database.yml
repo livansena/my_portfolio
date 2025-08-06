@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: seu_portfolio_dev
+  # username: seu_usuario_local
+  # password: sua_senha_local
+
+test:
+  <<: *default
+  database: seu_portfolio_test
+  # username: seu_usuario_local
+  # password: sua_senha_local
+
+production:
+  <<: *default
+  database: seu_pportfolio_producao_db # Nome do banco de dados no VPS
+  username: portfolio_user    # Nome do usuário do banco de dados no VPS
+  password: <%= ENV['DATABASE_PASSWORD'] %> # É crucial usar variável de ambiente para a senha!
+  host: localhost # Ou o IP do servidor do banco de dados se for remoto, mas aqui é no mesmo VPS
+  port: 5432

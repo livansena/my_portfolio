@@ -1,0 +1,35 @@
+<section class="projects-section" data-controller="show-more-cards">
+  <h1>Projetos</h1>
+  <div class="projects-grid" data-show-more-cards-target="grid">
+    <% first_three_projects = @projects.take(3) %>
+
+    <% (0..2).each do |i| %>
+      <% project = first_three_projects[i] %>
+      <% if project.present? %>
+        <div class="project-card">
+          <% if project.image_url.present? %>
+            <%= image_tag project.image_url, alt: project.title, class: "project-image" %>
+          <% end %>
+          <h3><%= project.title %></h3>
+          <p><%= project.description %></p>
+          <div class="project-links">
+            <% if project.github_url.present? %>
+              <%= link_to "GitHub", project.github_url, target: "_blank", class: "project-link-button" %>
+            <% end %>
+            <% if project.live_url.present? %>
+              <%= link_to "Site", project.live_url, target: "_blank", class: "project-link-button" %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="project-card coming-soon"><span>EM BREVE</span></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="buttons-container">
+    <button class="button-more" data-action="click->show-more-cards#addCards" data-show-more-cards-target="moreButton">Ver mais</button>
+    <button class="button-minimize" data-action="click->show-more-cards#removeCards" data-show-more-cards-target="minimizeButton" style="display:none;">Minimizar</button>
+  </div>
+
+  </section>

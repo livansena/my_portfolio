@@ -1,0 +1,243 @@
+@import "custom";
+
+/* Estilos Gerais da Navbar */
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #333; 
+  padding: 10px 20px;
+  color: #fff;
+}
+
+/* Estilos do Brand/Logo */
+.navbar-brand {
+  
+  display: flex;
+  align-items: center;
+  gap: 5px;   
+  color: #fff;
+  font-weight: bold;
+}
+
+.logo { 
+    display: flex;
+    align-items: center;
+}
+.logo-circle { 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 5px; 
+}
+.ruby-color { background-color: #e30000; }
+.css-color { background-color: #007acc; }
+.js-color { background-color: #f7df1e; color: #000; } 
+
+
+/* Estilos dos Links da Navbar */
+.navbar-links ul {
+  display: flex; 
+  margin: 0;
+  padding: 0;
+  list-style: none; 
+}
+
+.navbar-links li {
+  margin-left: 20px; 
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+/* Estilos do Botão Hambúrguer (Escondido por padrão em telas grandes) */
+.hamburger-menu {
+  display: none; 
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Media Queries para Responsividade (telas pequenas) */
+@media (max-width: 768px) { 
+  .navbar {
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+  }
+
+  .hamburger-menu {
+    display: flex; /* Mostra o hambúrguer em telas pequenas */
+  }
+
+  .navbar-links {
+    width: 100%; 
+    display: none; 
+    flex-direction: column; 
+    text-align: center;
+    background-color: #444; 
+  }
+
+  .navbar-links.active { 
+    display: flex;
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links li {
+    margin: 0; 
+    padding: 10px 0; 
+    border-bottom: 1px solid #555; 
+  }
+
+  .navbar-links li:last-child {
+    border-bottom: none; 
+  }
+
+  .navbar-links a {
+    padding: 10px;
+  }
+
+  /* Animação do Hambúrguer */
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* Estilos para o grid de Habilidades */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.skill-card {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill-icon {
+  font-size: 3em; /* Tamanho para ícones Font Awesome */
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.skill-card h3 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.skill-card p {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+/* Estilos para a seção de Conquistas */
+.achievements-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #2c2c2c; 
+  color: #eee;
+}
+
+.achievements-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-item {
+  background-color: #333; /* Cor de fundo do card de conquista */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px); 
+}
+
+.achievement-item h3 {
+  color: #fff;
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.achievement-item p {
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.achievement-image {
+  max-width: 80px; 
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.placeholder-text {
+  margin-top: 40px;
+  font-style: italic;
+  color: #aaa;
+}

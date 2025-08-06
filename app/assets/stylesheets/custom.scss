@@ -1,0 +1,681 @@
+$linkedin-blue: #0A66C2;
+$github-dark: #333333;
+$github-text: #FFFFFF;
+$background-dark: #3F3C3B;
+$text-light: #F0F0F0;
+$accent-red: #D64545;
+$accent-blue: #4582D6;
+$accent-yellow: #D6C145;
+$button-bg: #8A6D63;
+$button-text: $text-light;
+$card-bg: #5C5857;
+$border-color: #6D6A69;
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: $background-dark;
+  color: $text-light;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-light;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: $accent-blue; 
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+main {
+  padding: 20px;
+  min-height: calc(100vh - 120px);
+}
+
+header {
+  background-color: $background-dark;
+  padding: 20px;
+  border-bottom: 1px solid $border-color;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+
+    .logo {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      z-index: 1001;
+
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: white;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
+        &.ruby-color {
+          background: linear-gradient(to bottom right, lighten($accent-red, 10%), darken($accent-red, 10%));
+        }
+        &.css-color {
+          background: linear-gradient(to bottom right, lighten($accent-blue, 10%), darken($accent-blue, 10%));
+        }
+        &.js-color {
+          background: linear-gradient(to bottom right, lighten($accent-yellow, 10%), darken($accent-yellow, 10%));
+        }
+
+        animation: sway 3s ease-in-out infinite alternate;
+
+        &:nth-child(1) {
+          animation-delay: 0s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0.5s;
+        }
+        &:nth-child(3) {
+          animation-delay: 1s;
+        }
+      }
+    }
+
+    /* Removido .hamburger-menu daqui */
+    /* Removido .mobile-nav-menu daqui */
+
+    ul { 
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; 
+      flex-direction: row;
+      gap: 30px; 
+
+      li {
+        margin-left: 0; 
+
+        a {
+          color: $text-light; 
+          font-weight: bold;
+          font-size: 1.1em;
+          text-decoration: none; 
+
+          &:hover {
+            color: $accent-blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: darken($background-dark, 5%);
+  color: $text-light;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid $border-color;
+
+  p {
+    margin: 5px 0;
+  }
+
+  .social-links a {
+    margin: 0 10px;
+    font-size: 1.2em;
+  }
+}
+
+section {
+  padding: 40px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 70vh;
+  text-align: left;
+
+  .hero-content {
+    flex: 1;
+    padding-right: 20px;
+
+    .hero-title {
+      font-size: 3em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      color: $text-light;
+      display: inline-block;
+      position: relative;
+      span {
+        color: $accent-blue;
+      }
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      color: lighten($text-light, 10%);
+    }
+  }
+
+  .social-buttons-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-start;
+  }
+
+  .button-social {
+    display: inline-block;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .linkedin-button {
+    background-color: $linkedin-blue;
+
+    &:hover {
+      background-color: darken($linkedin-blue, 10%);
+    }
+  }
+
+  .github-button {
+    background-color: #000000;
+    color: $github-text;
+
+    &:hover {
+      background-color: lighten(#000000, 10%);
+    }
+  }
+
+  .hero-image {
+    flex: 1;
+    text-align: center;
+
+    .avatar-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+
+  .about-image {
+    flex: none;
+    text-align: center;
+    margin-bottom: 0;
+
+    .about-avatar-img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+  }
+
+  .about-content {
+    flex: 1;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+  }
+}
+
+.projects-section {
+  text-align: center;
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .project-card {
+    background-color: $card-bg;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba($text-light, 0.7);
+    position: relative;
+    overflow: hidden;
+
+    .project-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      object-fit: cover;
+      max-height: 150px;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 0.85em;
+      margin-bottom: 10px;
+      overflow: auto;
+      text-overflow: unset;
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      white-space: normal;
+      flex-grow: 1;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+
+      .project-link-button {
+        background-color: lighten($button-bg, 10%);
+        color: $button-text;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+
+        &:hover {
+          background-color: darken($button-bg, 5%);
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.coming-soon {
+      font-size: 1.5em;
+      background-color: darken($card-bg, 10%);
+      position: relative;
+      color: rgba($text-light, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        position: absolute;
+        transform: rotate(-45deg);
+        background-color: rgba($accent-red, 0.8);
+        padding: 5px 30px;
+        top: 20px;
+        left: -30px;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+    }
+  }
+}
+
+.button-more, .button-minimize {
+  background-color: $button-bg;
+  color: $button-text;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($button-bg, 10%);
+  }
+}
+
+.github-link {
+  font-size: 1.1em;
+}
+
+.skills-section {
+  text-align: center;
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .skill-item {
+    background-color: $card-bg;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 20px;
+
+    .skill-icon {
+      font-size: 2em;
+      color: $accent-yellow;
+      flex-shrink: 0;
+    }
+
+    .skill-details {
+      h3 {
+        margin-top: 0;
+        font-size: 1.5em;
+      }
+      p {
+        margin-bottom: 5px;
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+.contact-section {
+  text-align: center;
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  .contact-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+
+    .button-social {
+      display: inline-block;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .linkedin-button {
+      background-color: $linkedin-blue;
+
+      &:hover {
+        background-color: darken($linkedin-blue, 10%);
+      }
+    }
+
+    .github-button {
+      background-color: #000000;
+      color: $github-text;
+
+      &:hover {
+        background-color: lighten(#000000, 10%);
+      }
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  button {
+    min-width: 150px;
+    text-align: center;
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  header {
+    nav {
+      flex-direction: column; 
+      align-items: center;
+      padding: 15px;
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 10px; 
+
+
+        li {
+          margin: 10px 0;
+          margin-left: 0;
+          width: 100%;
+
+          a {
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: darken($background-dark, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+
+    .hero-content {
+      padding-right: 0;
+      margin-top: 20px;
+      text-align: center;
+
+      .social-buttons-container {
+        justify-content: center;
+      }
+    }
+
+    .hero-image {
+      margin-bottom: 20px;
+    }
+  }
+
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .about-image {
+      margin-bottom: 20px;
+    }
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card,
+  .skill-item {
+    padding: 15px;
+    height: auto;
+    min-height: 250px;
+  }
+  .project-card .project-image {
+    max-height: 120px;
+  }
+  .project-card h3 {
+      font-size: 1.1em;
+  }
+  .project-card p {
+      font-size: 0.8em;
+  }
+
+  .button-more, .button-minimize {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  section {
+    padding: 30px;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+/* Estilos Gerais da Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $background-dark; 
+  padding: 10px 20px;
+  color: $text-light;
+}
+
+/* Estilos do Brand/Logo */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: $text-light;
+  font-weight: bold;
+}
+
+/* Estilos dos Links da Navbar */
+.navbar-links {
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      margin-left: 20px;
+
+      a {
+        color: $text-light;
+        font-weight: bold;
+        font-size: 1.1em;
+        text-decoration: none;
+        padding: 5px 10px;
+        display: block;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #555;
+          border-radius: 4px;
+        }
+      }
+    }
+}
