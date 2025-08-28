@@ -52,3 +52,5 @@ group :test do
 end
 
 gem 'sitemap_generator'
+
+gem 'devise'

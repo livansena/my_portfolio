@@ -14,8 +14,8 @@
   <body>
     <header>
 
-     <nav class="navbar"> <%# Adicionei a classe "navbar" aqui %>
-  <div class="navbar-brand"> <%# Adicionei um container para o logo %>
+     <nav class="navbar">
+  <div class="navbar-brand">
     <div class="logo">
       <div class="logo-circle ruby-color">R</div>
       <div class="logo-circle css-color">CSS</div>
@@ -29,14 +29,14 @@
     <span class="bar"></span>
   </button>
 
-  <div class="navbar-links" id="navbarLinks"> <%# Esta div irá conter sua lista de links %>
+  <div class="navbar-links" id="navbarLinks">
     <ul>
-      <li><%= link_to "Início", root_path %></li>
-      <li><%= link_to "Sobre mim", sobre_mim_path %></li>
-      <li><%= link_to "Projetos", projetos_path %></li>
-      <li><%= link_to "Habilidades", habilidades_path %></li>
-       <li><%= link_to "Conquistas", achievements_path %></li>
-      <li><%= link_to "Contato", contato_path %></li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "About Me", sobre_mim_path %></li>
+      <li><%= link_to "Projects", projetos_path %></li>
+      <li><%= link_to "Skills", habilidades_path %></li>
+       <li><%= link_to "Achievements", achievements_path %></li>
+      <li><%= link_to "Contact", contato_path %></li>
     </ul>
   </div>
 </nav>
@@ -48,8 +48,8 @@
     </main>
 
     <footer>
-      <p>&copy; <%= Time.current.year %> Livan Passos. Todos os direitos reservados.</p>
-      <p>E-mail para contato: livansena@gmail.com</p>
+      <p>&copy; <%= Time.current.year %> Livan Passos. All rights reserved.</p>
+      <p>Contact e-mail: livansena@gmail.com</p>
     </footer>
   </body>
 </html>

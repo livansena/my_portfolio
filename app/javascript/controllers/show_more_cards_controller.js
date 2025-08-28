@@ -4,55 +4,46 @@ export default class extends Controller {
   static targets = ["grid", "moreButton", "minimizeButton"];
 
   connect() {
-    console.log("ShowMoreCards controller conectado!");
     this.currentCardCount = 3;
-    this.maxCards = 9;
-    this.minCards = 3;
+    this.allCards = this.gridTarget.querySelectorAll(".project-card");
+    this.updateCardVisibility();
     this.updateButtonVisibility();
   }
 
-  addCards() {
-    console.log("Botão 'Ver mais' clicado!");
-    const grid = this.gridTarget;
-
-    for (let i = 0; i < 3; i++) {
-      const newCard = document.createElement("div");
-      newCard.className = "project-card coming-soon";
-      newCard.innerHTML = "<span>EM BREVE</span>";
-      grid.appendChild(newCard);
-    }
+  showMore() {
     this.currentCardCount += 3;
+    this.updateCardVisibility();
     this.updateButtonVisibility();
   }
 
-  removeCards() {
-    console.log("Botão 'Ver menos' clicado!");
-    const grid = this.gridTarget;
-
-    for (let i = 0; i < 3; i++) {
-      if (grid.lastElementChild) {
-        grid.removeChild(grid.lastElementChild);
-      }
-    }
+  showLess() {
     this.currentCardCount -= 3;
+    this.updateCardVisibility();
     this.updateButtonVisibility();
+  }
+
+  updateCardVisibility() {
+    this.allCards.forEach((card, index) => {
+      if (index < this.currentCardCount) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
   }
 
   updateButtonVisibility() {
-  if (this.currentCardCount === this.minCards) { 
-    this.moreButtonTarget.style.display = "block";
-    this.minimizeButtonTarget.style.display = "none";
-  } else if (
-    this.currentCardCount > this.minCards &&
-    this.currentCardCount < this.maxCards
-  ) { 
-    this.moreButtonTarget.style.display = "block";
-    this.minimizeButtonTarget.style.display = "block";
-    this.minimizeButtonTarget.innerText = "Ver menos"; 
-  } else if (this.currentCardCount === this.maxCards) { 
-    this.moreButtonTarget.style.display = "none";
-    this.minimizeButtonTarget.style.display = "block";
-    this.minimizeButtonTarget.innerText = "Ver menos"; 
+    if (this.currentCardCount >= this.allCards.length) {
+      this.moreButtonTarget.style.display = "none";
+      this.minimizeButtonTarget.style.display = "block";
+    } else {
+      this.moreButtonTarget.style.display = "block";
+    }
+
+    if (this.currentCardCount <= 3) {
+      this.minimizeButtonTarget.style.display = "none";
+    } else {
+      this.minimizeButtonTarget.style.display = "block";
+    }
   }
-}
 }

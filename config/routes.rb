@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root "pages#home"
 
-  # Rotas para as páginas estáticas
   get "sobre-mim", to: "pages#about"
   get "projetos", to: "pages#projects"
   get "habilidades", to: "pages#skills"

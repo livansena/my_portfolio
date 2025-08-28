@@ -6,14 +6,12 @@ default: &default
 development:
   <<: *default
   database: seu_portfolio_desenvolvimento_db
-  username: portfolio_user
-  password: h@Rp1@78579467
+  username: livan
 
 test:
   <<: *default
   database: seu_portfolio_teste_db
-  username: portfolio_user
-  password: h@Rp1@78579467
+  username: livan
 
 production:
   <<: *default
