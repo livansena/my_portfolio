@@ -37,7 +37,7 @@ https://livanpassos.com
 
 ## 📸 Preview
 
-(Add screenshots here later)
+![Portfolio Preview](home.png)
 
 ---
 
